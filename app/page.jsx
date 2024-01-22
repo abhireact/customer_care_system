@@ -3,7 +3,7 @@ import TicketCard from "./(components)/TicketCard";
 
 const getTickets = async () => {
   try {
-    const res = await fetch("https://customer-care-ticket-system-git-main-abhis-projects-f9e8e5dc.vercel.app/api/Tickets", {
+    const res = await fetch("http://localhost:3000/api/Tickets", {
       cache: "no-store",
     });
 
@@ -21,7 +21,7 @@ const Dashboard = async () => {
   const data = await getTickets();
 
   // Make sure we have tickets needed for production build.
-  if (!data?.tickets) {
+  if (data.tickets) {
     return <p>No tickets are  available </p>;
   }
 
